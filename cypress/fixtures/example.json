@@ -1,0 +1,32 @@
+{
+
+  "URL": "https://www.demoblaze.com/index.html",
+ 
+  "Username": "aify",
+ 
+  "Password": "love",
+ 
+  "Name": "Ifeanyi Umeh",
+ 
+  "Country" : "Nigeria",
+ 
+  "InvalidEmail": "Ifeanyiumeh07@",
+ 
+  "ValidEmail": "Ifeanyiumeh07@gmail.com",
+ 
+  "Message": "I am a good woman",
+ 
+  "City" : "Lagos",
+ 
+  "CreditCard" : 212234231345676,
+ 
+  "Month" : "O6",
+ 
+  "Month2": "June",
+ 
+  "Year" : "2023",
+ 
+  "LongMessage": "The cucumber plugin is one of the important plugins in cypress because it is a BDD test management"
+ 
+ }
+ 
