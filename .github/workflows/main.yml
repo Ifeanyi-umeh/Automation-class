@@ -6,7 +6,7 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    
+    giiini
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
