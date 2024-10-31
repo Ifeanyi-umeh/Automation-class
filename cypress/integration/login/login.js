@@ -47,15 +47,21 @@ Then("i should get a message {string}",function(){
 })
     
     //validate successful login with invalid details
-    Then("i should get a header message {string}", function() {
-      cy.on('window:alert', (text) => {
-        expect(text).to.contain('User does not exist.').click()
-          cy.get('.btn btn-secondary').contains('Close').should('be.visible')
-            //cy.wait(10000)
-    })
-    })
+    When("i enter invalid {string} and {string}", (username, password) => {
+      // });
+      cy.wait(2000)
+      cy.get("#loginusername").should('be.visible').type(username)
+      cy.wait(2000)
+      cy.get("#loginpassword").should('be.visible').type(password)
+  });
   
+  Then("i should get an alert error {string}", (message) => {
+    cy.wait(2000)
 
+  })
+    cy.on('window:alert', function(alertMessage){
+        expect(alertMessage).to.contains(message)
+});
 
     
     

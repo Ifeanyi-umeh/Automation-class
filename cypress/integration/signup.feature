@@ -1,6 +1,6 @@
 Feature: Demoblaze ecommerce functionality test 
 
-@signup
+@signupwithvaliddetails
 Scenario: Sign up with valid details
 Given i navigate to the Demoblaze ecommerce website
 When i click on the signup button
