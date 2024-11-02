@@ -22,50 +22,27 @@ Then('the PRODUCT STORE  page should displayed', () => {
 When('i click on Login link', () => {
   cy.get('a[id="login2"]').should('be.visible').click()
 });
-When("i enter invalid {string} and {string}", (Username, Password) => {
-  cy.wait(2000)
-  cy.get("#loginusername").should('be.visible').type(username)
-  cy.wait(2000)
-  cy.get("#loginpassword").should('be.visible').type(password)
 
-});
-
-When('I click on Login Button', () => {
-  cy.get('button[onclick="logIn()"]').should('be.visible').click()
-});
-
-Then("i should get an alert error {string}", (message) => {
-      cy.on('window:alert', function(alertMessage){
-          expect(alertMessage).to.contains(message)
-});
-});
-When("I enter valid {string} and {string}", (Username, Password) => {
-  cy.wait(2000)
-  cy.get("#loginusername").should('be.visible').type(Username)
-  cy.wait(2000)
-  cy.get("#loginpassword").should('be.visible').type(Password)
-
-});
-
-
-Then("I should get different result {string}", (message) => {
-  cy.get("#nameofuser").should('contain.text', message)
-});
 
 When('I enter below data', (dataTable) => {
   cy.wait(2000)
 
   const { Username, Password, SuccessMessage, FailMessage } = dataTable.hashes()[0];
   cy.wait(2000)
+  if(Username)
   cy.get("#loginusername").should('be.visible').type(Username)
   cy.wait(2000)
+  if(Password)
   cy.get("#loginpassword").should('be.visible').type(Password)
-
   cy.wrap(SuccessMessage).as('expectedSuccessMessage');
   cy.wrap(FailMessage).as('expectedFailMessage');
-  
+  cy.log("Password field is left empty as per test case");
+  cy.log("Username field is left empty as per test case");
+  cy.log("Username and Password field is left empty as per test case");
 });
-
+When('I click on Login Button', () => {
+  cy.get('button[onclick="logIn()"]').should('be.visible').click()
+});
 
 Then('I should get different results input', () => {
   cy.get('@expectedSuccessMessage').then((SuccessMessage) => {
@@ -75,11 +52,19 @@ Then('I should get different results input', () => {
 
         } else if (FailMessage) {
           cy.on('window:alert', (alertText) => {
+            if (password) {
+              cy.get("#loginpassword").should('be.visible');
+            }
             expect(alertText).to.equal(FailMessage);
+            
+            
           });
         }
       });
      });
     });
+
+
+
 
 
