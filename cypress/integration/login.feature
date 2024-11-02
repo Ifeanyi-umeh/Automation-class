@@ -1,4 +1,4 @@
-# Feature: Demoblaze login functionality test
+ #Feature: Demoblaze login functionality test
 
 # @loginwithvaliddetails
 #     Scenario Outline: login functionality of the demoblaze website
@@ -29,17 +29,27 @@
         
 
 
+  Feature: Demoblaze login functionality test
+    @loginfunctionality
+    Scenario Outline: Login functionlity for demoblaze website
+   
+   Given I navigate to demoblaze ecommerce website
+   Then the PRODUCT STORE  page should displayed
+   When i click on Login link
 
-    
-Scenario outline for login functionality
-   #Given I navigate to demoblaze ecommerce website
-   #Then the product store page should displayed
-   #When i click on Login link
-
-When i enter below data
-| username   | password   | successmessage   | failmessage   |
+When I enter below data
+| Username   | Password   | SuccessMessage   | FailMessage   |
 | <Username> | <Password> | <SuccessMessage> | <FailMessage> |
 When I click on Login Button
+Then I should get different results input
+Examples:
+|Username|Password|SuccessMessage|FailMessage                           |
+|aify    |love    |Welcome aify  |                                      |
+|aif     |love    |              |User does not exist.                  |
+|        |love    |              |Please fill out Username and Password.|
+|aify    |        |              |Please fill out Username and Password.|
+|        |        |              |Please fill out Username and Password.|
+
 
    
 
