@@ -29,10 +29,10 @@ When('I enter below data', (dataTable) => {
 
   const { Username, Password, SuccessMessage, FailMessage } = dataTable.hashes()[0];
   cy.wait(2000)
-  if(Username)
+  if(Username)//when user enters only username
   cy.get("#loginusername").should('be.visible').type(Username)
   cy.wait(2000)
-  if(Password)
+  if(Password)//when user enters password only
   cy.get("#loginpassword").should('be.visible').type(Password)
   cy.wrap(SuccessMessage).as('expectedSuccessMessage');
   cy.wrap(FailMessage).as('expectedFailMessage');
