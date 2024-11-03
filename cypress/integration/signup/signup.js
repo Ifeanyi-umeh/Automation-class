@@ -27,30 +27,31 @@ When(`i click on sign up button`, () => {
 });
 
 Then(`i should successfully signup`, () => {
-   
+    cy.on('window:alert', function(alertMessage){
+        expect(alertMessage).to.contains(message)
+    })
 });
 
-When(`i enter a valid username`, () => {
+When(`i enter only username`, () => {//asert i sign up with username only
     cy.get("#sign-username").should('be.visible').type("aify")
     cy.wait(4000)
+
 });
 
 Then(`i should get an error message Please fill out Username and Password.`, () => {
     //assert that sign up should be unsuccessful
     cy.on('window:alert', (text) => {
         expect(text).to.contain('Please fill out Username and Password.').click()// error message to fill username and passcode to pop up
-
           cy.get('.btn btn-secondary').contains('Close').should('be.visible')//assert that the close button is visible
-
             cy.wait(4000)
     })
 
 });
 
-When(`i enter a valid password`, () => {
+When(`i enter only password`, () => {
     cy.get("#sign-password").should('be.visible').type("love")
     cy.wait(4000)
-
-
-    
+   
 });
+
+

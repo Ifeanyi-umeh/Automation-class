@@ -18,8 +18,8 @@ Feature: Demoblaze login functionality test
          | 123      | lo12     |                | Please fill out Username and Password. |
          | ai#@     | 123      |                | Please fill out Username and Password. |
          | 1123     | 123      |                | Please fill out Username and Password. |
-         |aify      |          |                |Please fill out Username and Password.  |
-         |          |love      |                |Please fill out Username and Password.  |
-         |          |          |                |Please fill out Username and Password.  |
+         |aify      |          |                | Please fill out Username and Password. |
+         |          |love      |                | Please fill out Username and Password. |
+         |          |          |                | Please fill out Username and Password. |
 
    
